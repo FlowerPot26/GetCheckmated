@@ -1,10 +1,8 @@
 # README
 
-A simple game to practice “blindfold chess”
+A flask application for practicing "blindfold chess"
 
 ## Usage:
-
-After running the [main.py](http://main.py) script type “start” , “start2” (start with help) or “exit”
 
 Chess moves have to be written in algebraic notation:
 

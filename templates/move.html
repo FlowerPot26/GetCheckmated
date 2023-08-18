@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make a Move!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff;
+            padding: 50px;
+        }
+        .makemove {
+            background-color: #d1d1d1;
+            color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        .info {
+            background-color: #66bb6a;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        .error {
+            background-color: #a6323b;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="makemove">
+        <h1>Make a Move!</h1>
+
+        <form method="post">
+            <label for="move_input">Enter your next move:</label>
+            <input type="text" name="move_input" id="move_input" required>
+            <button type="submit">Submit</button>
+            {% if not opponent_move %}
+                <p>Tip: Moves can be made by typing the start and end coordinates like "d2d4". </p>
+            {% endif %}
+        </form>
+    </div>
+
+    {% if last_move %}
+    <div class="info">
+        {% if last_move %}
+            <p>Move made: {{ last_move }}</p>
+        {% endif %}
+        {% if opponent_move %}
+            <p>Opponent Move: {{ opponent_move }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="error">
+        <p>{{ error | replace( '\n', '<br>') | safe }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
