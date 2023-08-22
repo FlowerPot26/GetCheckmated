@@ -22,9 +22,9 @@ jobs:
             whoami
             ls -al
             env
-            echo ${{ github.sha }}
-            echo !!!!!!!!!!!!!!!!!!!!!!
+            
+            
           SCRIPT_AFTER: |
             whoami
             ls -al
-          
+            ln -s ${{ github.sha }} /srv/deploy/get-checkmated/current
