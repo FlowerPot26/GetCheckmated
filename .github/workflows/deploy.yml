@@ -23,6 +23,7 @@ jobs:
             ls -al
             env
             echo ${{ github.sha }}
+            echo !!!!!!!!!!!!!!!!!!!!!!
           SCRIPT_AFTER: |
             whoami
             ls -al
