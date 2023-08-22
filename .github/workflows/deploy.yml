@@ -13,7 +13,7 @@ jobs:
       uses: burnett01/rsync-deployments@6.0.0
       with:
         switches: -avzr --delete
-        path: src/
+        path: .
         remote_path: /srv/deploy/get-checkmated
         remote_host: 65.108.80.178
         remote_user: deploy
