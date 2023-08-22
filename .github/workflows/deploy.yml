@@ -17,7 +17,7 @@ jobs:
           SOURCE: "."
           REMOTE_HOST: "65.108.80.178"
           REMOTE_USER: "deploy"
-          TARGET: "/srv/deploy/get-checkmated/releases/${{ env.GITHUB_SHA }} "
+          TARGET: "/srv/deploy/get-checkmated/releases/${{ github.sha }} "
           SCRIPT_BEFORE: |
             whoami
             ls -al
