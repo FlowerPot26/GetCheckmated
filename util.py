@@ -73,7 +73,7 @@ class Game:
                 if c == ' ':
                     break
                 elif c in '12345678':
-                    brow += (' * ' * int(c))
+                    brow += ('  -  ' * int(c))
                 elif c == ' p':
                     brow += ' p '
                 elif c == 'P':
