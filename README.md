@@ -12,3 +12,4 @@ Chess moves have to be written in algebraic notation:
 ## Goal:
 
 The goal of the game is to be checkmated.
+
