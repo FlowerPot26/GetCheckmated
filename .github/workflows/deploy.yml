@@ -1,20 +1,36 @@
-name: DEPLOY
-on:
-  push:
-    branches:
-    - master
+name: Node CI
+
+on: [push]
 
 jobs:
-  deploy:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v3
-    - name: rsync deployments
-      uses: burnett01/rsync-deployments@6.0.0
+    - name: Install Node.js
+      uses: actions/setup-node@v3
       with:
-        switches: -avzr --delete
-        path: .
-        remote_path: /srv/deploy/get-checkmated
-        remote_host: 65.108.80.178
-        remote_user: deploy
-        remote_key: ${{ secrets.DEPLOY_KEY }}
+        node-version: '16.x'
+    - name: Install npm dependencies
+      run: npm install
+    - name: Run build task
+      run: npm run build --if-present
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@main
+      with:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          ARGS: "-rlgoDzvc -i --delete"
+          SOURCE: "."
+          REMOTE_HOST: "65.108.80.178"
+          REMOTE_USER: "deploy"
+          TARGET: "/srv/deploy/get-checkmated/releases/${{ GITHUB_SHA }} "
+          SCRIPT_BEFORE: |
+            whoami
+            ls -al
+            env
+          SCRIPT_AFTER: |
+            whoami
+            ls -al
+          
