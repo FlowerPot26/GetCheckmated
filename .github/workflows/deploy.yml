@@ -2,7 +2,7 @@ name: DEPLOY
 on:
   push:
     branches:
-    - FlaskApp -Master
+    - master
 
 jobs:
   deploy:
@@ -14,7 +14,7 @@ jobs:
       with:
         switches: -avzr --delete
         path: src/
-        remote_path: /var/www/html/
-        remote_host: example.com
+        remote_path: /srv/deploy/get-checkmated
+        remote_host: 65.108.80.178
         remote_user: deploy
         remote_key: ${{ secrets.DEPLOY_KEY }}
