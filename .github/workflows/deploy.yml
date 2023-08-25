@@ -27,8 +27,8 @@ jobs:
           SCRIPT_AFTER: |
             whoami
             ls -al
-            ln -sf ${{ github.sha }} /srv/deploy/get-checkmated/current
-            cd /get-checkmated/current
+            ln -sf ${{ github.sha }} /srv/deploy/get-checkmated/releases/current
+            cd /get-checkmated/releases/current
             echo CURRENTLY IN:
             pwd
             
