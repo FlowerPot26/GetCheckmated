@@ -28,7 +28,7 @@ jobs:
             whoami
             ls -al
             ln -sf ${{ github.sha }} /srv/deploy/get-checkmated/releases/current
-            cd get-checkmated/releases/current
+            touch /srv/deploy/get-checkmated/releases/current/createdfile
             echo CURRENTLY IN:
             pwd
             
