@@ -32,6 +32,7 @@ jobs:
             source /srv/deploy/get-checkmated/releases/current/serverenv/bin/activate
             pip install -r /srv/deploy/get-checkmated/releases/current/requirements.txt
             pip install gunicorn
+            systemctl start nginx
             echo CURRENTLY IN:
             pwd
             
