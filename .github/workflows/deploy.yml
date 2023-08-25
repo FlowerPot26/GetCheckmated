@@ -27,4 +27,4 @@ jobs:
           SCRIPT_AFTER: |
             whoami
             ls -al
-            ln -s ${{ github.sha }} /srv/deploy/get-checkmated/current
+            ln -sf ${{ github.sha }} /srv/deploy/get-checkmated/current
