@@ -28,3 +28,7 @@ jobs:
             whoami
             ls -al
             ln -sf ${{ github.sha }} /srv/deploy/get-checkmated/current
+            python3 -m venv serverenv
+            source serverenv/bin/activate
+            pip install -r requirements.txt
+            pip install gunicorn
