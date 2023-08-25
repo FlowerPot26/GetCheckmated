@@ -28,5 +28,7 @@ jobs:
             whoami
             ls -al
             ln -sf ${{ github.sha }} /srv/deploy/get-checkmated/current
+            echo CURRENTLY IN:
+            pwd
             
             
