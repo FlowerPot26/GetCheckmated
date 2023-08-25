@@ -30,6 +30,8 @@ jobs:
             ln -sf ${{ github.sha }} /srv/deploy/get-checkmated/releases/current
             python3 -m venv /srv/deploy/get-checkmated/releases/current/serverenv
             source /srv/deploy/get-checkmated/releases/current/serverenv/bin/activate
+            pip install -r /srv/deploy/get-checkmated/releases/current/requirements.txt
+            pip install gunicorn
             echo CURRENTLY IN:
             pwd
             
