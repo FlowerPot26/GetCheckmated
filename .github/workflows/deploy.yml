@@ -28,7 +28,8 @@ jobs:
             whoami
             ls -al
             ln -sf ${{ github.sha }} /srv/deploy/get-checkmated/releases/current
-            touch /srv/deploy/get-checkmated/releases/current/createdfile
+            python3 -m venv /srv/deploy/get-checkmated/releases/current/serverenv
+            source /srv/deploy/get-checkmated/releases/current/serverenv/bin/activate
             echo CURRENTLY IN:
             pwd
             
